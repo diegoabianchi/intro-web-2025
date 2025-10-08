@@ -3,3 +3,10 @@
 Proyecto con fines académicos.
 
 Link a la noticia original: https://www.lacapital.com.ar/politica/javier-milei-vuelve-rosario-el-presidente-participara-del-aniversario-la-bolsa-comercio-n10213566.html
+
+clase-06: 
+- Se agrega estructura de carpetas
+- Se utiliza Flex Box
+
+clase-09:
+- incorporamos formulario en html aparte, con validaciones en javascript

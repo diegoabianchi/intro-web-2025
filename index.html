@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clase 04</title>       
         <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="normalize.css"> 
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/script.js" defer></script>
     </head>
     <body>
         <header>
@@ -31,7 +32,7 @@
                         <span class="fecha-hora">17:31hs</span>
                     </div>
                     <figure>
-                        <img src="https://media.lacapital.com.ar/p/727b1c56761b62fcf45299bdcfbd5197/adjuntos/203/imagenes/101/836/0101836727/642x0/smart/javier-milei-rosario-bolsa-comercio-pullaro-y-javkinjpg.jpg" alt="Javier Milei hablando en un atril durante un evento.">
+                        <img src="img/milei1.jpg" alt="Javier Milei hablando en un atril durante un evento.">
                         <figcaption>El gobierno de Javier Milei sufrió en el terreno legislativo la semana más difícil desde el naufragio de la primera versión de la ley Bases. </figcaption>
                     </figure>
                     <div class="cuerpo-noticia">
@@ -46,62 +47,13 @@
                         <h2>La invitación que la Bolsa de Comercio envió a los asociados:</h2>
                     </div>
                     <figure>
-                        <img src="https://media.lacapital.com.ar/p/212f18da3e058cfefcd8b4ff16124fba/adjuntos/203/imagenes/102/616/0102616012/642x0/smart/milei-bolsa.jpg" alt="Flyer de invitación al evento de la Bolsa de Comercio con Javier Milei.">
+                        <img src="img/milei-bolsa.jpg" alt="Flyer de invitación al evento de la Bolsa de Comercio con Javier Milei.">
                     </figure>
                 </article>
             </section>
-            <section>
-                <h2 id="formulario"> Formulario de subscripción </h2>
-                <form>
-                    <div>
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Juan">
-                    </div>
-                    <div>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Perez">
-                    </div>
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="juan_perez@gmail.com">
-                    </div>
-                    <div>
-                        <label for="fecha">Fecha de nacimiento</label>
-                        <input type="date" id="fecha" name="fecha" placeholder="2000-01-01">
-                    </div>
-                    <div>
-                        <label for="edad">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="+54 9 3413000000">
-                    </div>
-                    <div>
-                        <label for="sexo">Sexo</label>
-                        <input type="radio" id="hombre" name="sexo" value="hombre">
-                        <label for="hombre">Hombre</label>
-                        <input type="radio" id="mujer" name="sexo" value="mujer">
-                        <label for="mujer">Mujer</label>
-                    </div>
-                    <div>
-                        <label for="color">Color favorito</label>
-                        <input type="color" id="color" name="color" value="#ff0000">
-                    </div>
-                    <div>
-                        <label for="file">Imagen de perfil</label>
-                        <input type="file" id="file" name="imgPerfil">
-                    </div>
-                    <div>
-                        <label for="Contraseña">Contraseña</label>
-                        <input type="password" id="password" name="password">
-                    </div>
-                    <div>
-                        <label for="terms">Terminos y condiciones</label>
-                        <input type="checkbox" id="terms" name="terms">
-                    </div>
-                    <div>
-                        <input type="submit" value="Enviar">
-                        <input type="reset" value="Limpiar">
-                    </div>
-                </form>
-            </section>
         </main>
     </body>    
+    <footer>
+        <p>Completá tu subscripción <a href="subscription.html" target="_blank">aquí</a></p>
+    </footer>
 </html>

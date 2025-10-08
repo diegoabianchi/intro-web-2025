@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario de subscripción</title>       
+        <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <nav class="barra-nav">
+                <a class="mini-nav" href="/" title="La Capital">La Capital</a>
+                <span class="sep">|</span>
+                <a class="mini-nav" href="https://www.lacapital.com.ar/secciones/politica.html">Política</a>
+                <span class="sep">|</span>
+                <a class="mini-nav" href="https://www.lacapital.com.ar/javier-milei-a1002740.html">Javier Milei</a>
+            </nav> 
+        </header>
+        <main>
+            <section>
+                <h2 id="formulario"> Formulario de subscripción </h2>
+                <h3 id="saludo"> </h3>
+                <form class="formulario" id="miFormulario">
+                    <div>
+                        <label for="nombreCompleto">Nombre Completo</label>
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Juan Perez">
+                        <span class="error-msg" id="error-nombreCompleto"></span>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="juan_perez@gmail.com">
+                        <span class="error-msg" id="error-email"></span>
+                    </div>
+                    <div>
+                        <label for="Contraseña">Contraseña</label>
+                        <input type="password" id="contrasena" name="contrasena">
+                        <span class="error-msg" id="error-contrasena"></span>
+                    </div>
+                    <div>
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad" name="edad" placeholder="30">
+                        <span class="error-msg" id="error-edad"></span>
+                    </div>
+                    <div>
+                        <label for="telefono">Teléfono</label>
+                        <input type="number" id="telefono" name="telefono" placeholder="+54 9 3413000000">
+                        <span class="error-msg" id="error-telefono"></span>
+                    </div>
+                    <div>
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Calle 1234">
+                        <span class="error-msg" id="error-direccion"></span>
+                    </div>
+                    <div>
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad" placeholder="Rosario">
+                        <span class="error-msg" id="error-ciudad"></span>
+                    </div>
+                    <div>
+                        <label for="codigoPostal">Código Postal</label>
+                        <input type="text" id="codigoPostal" name="codigoPostal" placeholder="2000">
+                        <span class="error-msg" id="error-codigoPostal"></span>
+                    </div>
+                    <div>
+                        <label for="dni">DNI</label>
+                        <input type="number" id="dni" name="dni" placeholder="30111222">
+                        <span class="error-msg" id="error-dni"></span>
+                    </div>
+                    <div class="botones">
+                        <input id="btn-submit" type="submit" value="Enviar">
+                        <input id="btn-limpiar" type="reset" value="Limpiar">
+                    </div>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
