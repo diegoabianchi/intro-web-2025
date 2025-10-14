@@ -160,6 +160,63 @@ footer p {
   margin-top: 0.3rem;
 }
 
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.modal.oculto {
+    display: none;
+}
+.modal-contenido {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    max-height: 80vh;
+    width: 90%;
+    overflow-y: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: left;
+    font-family: "Segoe UI", sans-serif;
+}
+.modal-contenido h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.3em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+#modalMensaje {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Courier New", monospace;
+    font-size: 0.9em;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    overflow-x: auto;
+    max-height: 60vh;
+}
+.cerrar {
+    position: absolute;
+    top: 8px; right: 12px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+}
+.cerrar:hover {
+    color: #000;
+}
+
 
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
