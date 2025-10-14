@@ -242,7 +242,7 @@ function limpiarDNI() {
 /*Al presionar el botón “Enviar” se debe mostrar un cartel emergente con la información cargada en el formulario en caso de que haya 
 pasado todas las validaciones. Si alguna validación no pasó, además de mostrar el error debajo del campo, también se debe mostrar 
 el error en el cartel emergente.*/
-function enviarFormulario(event) {
+async function enviarFormulario(event) {
     event.preventDefault(); // Evitar el envío del formulario
     console.log('enviarFormulario');
 
@@ -278,6 +278,36 @@ function enviarFormulario(event) {
 
         alert(mensaje);
 
+        // Clase 10 - Envío de datos al servidor (GET con query params)
+        console.log('Enviando datos al servidor...');
+        // Recolectar datos del formulario
+        const form = document.getElementById('miFormulario');
+        const datos = new FormData(form);
+        const params = new URLSearchParams(datos).toString();
+        const url = `https://jsonplaceholder.typicode.com/posts?${params}`;
+
+        try {
+            const response = await fetch(url, { method: 'GET' });
+
+            if (!response.ok) {
+                const errorTexto = `Error ${response.status}: ${response.statusText}`;
+                mostrarModal("Error al enviar datos", errorTexto);
+                return;
+            }
+
+            const data = await response.json();
+            console.log('Respuesta recibida:', data);
+
+            // Mostrar modal con los datos recibidos
+            mostrarModal("Suscripción exitosa 🎉", JSON.stringify(data, null, 2));
+
+            // Guardar en LocalStorage
+            localStorage.setItem('datosSuscripcion', JSON.stringify(Object.fromEntries(datos)));
+
+        } catch (error) {
+            mostrarModal("Error de conexión", error.message);
+        }
+
     } else {
         var errores = document.getElementsByClassName('error-msg');
         var stringErrores = "";
@@ -287,7 +317,9 @@ function enviarFormulario(event) {
             } 
         }
 
-        alert('Por favor, corrija los errores en el formulario antes de enviarlo: '+'\n\n'+stringErrores);
+        //alert('Por favor, corrija los errores en el formulario antes de enviarlo: '+'\n\n'+stringErrores);
+        mostrarModal('Error en validación', 'Por favor, corrija los errores en el formulario antes de enviarlo: '+'\n\n'+stringErrores);
+        return;
     }   
 }
 
@@ -307,3 +339,54 @@ function limpiarSaludo() {
     document.getElementById('saludo').textContent = '';
 }
 
+
+// -----------------------------------------------------------------------
+// ----------------------------- Clase 10 --------------------------------
+// -----------------------------------------------------------------------
+
+// MODAL
+function crearModal() {
+    const modal = document.createElement('div');
+    modal.id = 'miModal';
+    modal.classList.add('modal', 'oculto');
+    modal.innerHTML = `
+        <div class="modal-contenido">
+            <span id="cerrarModal" class="cerrar">&times;</span>
+            <h2 id="modalTitulo"></h2>
+            <pre id="modalMensaje"></pre>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Cerrar modal
+    document.getElementById('cerrarModal').addEventListener('click', ocultarModal);
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) ocultarModal();
+    });
+}
+function ocultarModal() {
+    document.getElementById('miModal').classList.add('oculto');
+}
+
+function mostrarModal(titulo, mensaje) {
+    const modal = document.getElementById('miModal');
+    document.getElementById('modalTitulo').textContent = titulo;
+    document.getElementById('modalMensaje').textContent = mensaje;
+    modal.classList.remove('oculto');
+}
+
+// Crear modal al cargar la página
+document.addEventListener('DOMContentLoaded', crearModal);
+
+// --- CARGAR DATOS DESDE LOCALSTORAGE AL INICIAR ---
+window.onload = function() {
+    const guardados = localStorage.getItem('datosSuscripcion');
+    if (guardados) {
+        const datos = JSON.parse(guardados);
+        for (const [key, value] of Object.entries(datos)) {
+            const campo = document.getElementById(key);
+            if (campo) campo.value = value;
+        }
+        document.getElementById('saludo').textContent = 'Hola ' + (datos.nombreCompleto || '');
+    }
+};
